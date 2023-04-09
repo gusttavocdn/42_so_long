@@ -9,8 +9,9 @@ APP_SRC = ./app
 APP = so_long
 SRC_DIR = ./src
 OBJ_DIR = ./obj
+BIN_DIR = ./bin
 
-SRC_FILES = handle_key_events.c
+SRC_FILES = handle_key_events.c map_handlers.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
@@ -18,7 +19,10 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 all:	${NAME}
 
 ${NAME}: ${LIBFT} ${OBJ}
-	${CC} ${CFLAGS} ${APP_SRC}/${APP}.c ${OBJ} ${LIB_FLAGS} -o ${APP}
+	${CC} ${CFLAGS} ${APP_SRC}/${APP}.c ${OBJ} ${LIB_FLAGS} -o ${BIN_DIR}/${APP}
+
+run:
+	${BIN_DIR}/${APP} ${ARGS}
 
 ${LIBFT}:
 	@echo "Making Libft objects files"
@@ -30,6 +34,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	${CC} ${CFLAGS} ${LIB_FLAGS} -c $< -o $@
 
 clean:
-	${RM} ./obj/*.o so_long
+	${RM} ${OBJ_DIR}/*.o ${BIN_DIR}/${APP}
 
 .PHONY: all run clean

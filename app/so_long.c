@@ -14,20 +14,21 @@
 
 int main(int argc, char **argv)
 {
-	t_mlx mlx;
+//	t_mlx mlx;
+	ft_printf("I got here 1");
+	t_map map;
 
 	if (argc != 2)
 	{
 		perror("This program accepts only 1 argument that must be a map.ber file");
 		return (1);
 	}
+	read_map_file(argv[1], &map);
 
-	ft_printf("%s", argv[1]);
-
-	mlx.game_ptr = mlx_init();
-	mlx.win_ptr = mlx_new_window(mlx.game_ptr, W_WIDTH, W_HEIGHT, "So Long");
-
-	mlx_key_hook(mlx.win_ptr, handle_key_events, &mlx);
-	mlx_loop(mlx.game_ptr);
+//	mlx.game_ptr = mlx_init();
+//	mlx.win_ptr = mlx_new_window(mlx.game_ptr, W_WIDTH, W_HEIGHT, "So Long");
+//
+//	mlx_key_hook(mlx.win_ptr, handle_key_events, &mlx);
+//	mlx_loop(mlx.game_ptr);
 	return (0);
 }

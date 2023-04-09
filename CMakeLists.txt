@@ -18,14 +18,14 @@ include_directories(
 
 # Create a list of source files
 set(SOURCES app/so_long.c
-        src/handle_key_events.c)
+        src/handle_key_events.c src/map_handlers.c)
 
 # Add all source files from libft to the SOURCES list
 file(GLOB LIBFT_SOURCES "libft/*.c")
 list(APPEND SOURCES ${LIBFT_SOURCES})
 
 # Create a library target for libft
-add_library(ft STATIC ${LIBFT_SOURCES})
+add_library(ft STATIC ${LIBFT_SOURCES} libft/ft_strfull.c)
 
 # Add the executable target
 add_executable(${PROJECT_NAME} ${SOURCES})

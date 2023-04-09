@@ -25,6 +25,17 @@
 # define W_WIDTH 900
 # define W_HEIGHT 600
 # define BLOCK_ASSET "../assets/block.xpm"
+# define WALL_CHAR '1'
+# define TRUE 1
+# define FALSE 0
+
+
+typedef struct s_map
+{
+	char **matriz;
+	size_t columns;
+	size_t rows;
+} t_map;
 
 typedef struct s_img
 {
@@ -41,5 +52,7 @@ typedef struct s_mlx
 } t_mlx;
 
 int handle_key_events(int key_code, t_mlx *mlx);
+
+int read_map_file(char *filepath, t_map *map);
 
 #endif // SO_LONG_H
