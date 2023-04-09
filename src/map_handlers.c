@@ -14,27 +14,39 @@
 
 int is_map_surronded_by_walls(t_map *map);
 
-int read_map_file(char *filepath, t_map *map)
+int ft_includes(const char *str, const char *chars);
+
+void read_map_file(char *filepath, t_map *map)
 {
 	size_t i;
 	int fd;
 	char *line;
 
 	fd = open(filepath, O_RDONLY);
-	line = get_next_line(fd);
+	if (fd < 0)
+	{
+		perror("There was an error open map file");
+		exit(ERROR_STATUS);
+	}
 	i = 0;
+	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		map->matriz[i] = line;
+		map->matriz[i++] = line;
 		line = get_next_line(fd);
-		i++;
 	}
 	map->rows = i;
 	map->columns = ft_strlen(map->matriz[i - 1]);
 	close(fd);
+}
+
+void validate_map(t_map *map)
+{
 	if (!is_map_surronded_by_walls(map))
-		return (FALSE);
-	return (TRUE);
+	{
+		perror("The map is invalid. Ensure that the map has the correct format");
+		exit(ERROR_STATUS);
+	}
 }
 
 int is_map_surronded_by_walls(t_map *map)
@@ -61,5 +73,24 @@ int is_map_surronded_by_walls(t_map *map)
 			return (FALSE);
 		i++;
 	}
+	return (TRUE);
+}
+
+int has_map_only_allowed_chars(t_map *map)
+{
+	size_t rows;
+	size_t i;
+	char *row_content;
+
+	i = 0;
+	rows = map->rows;
+	while (i < rows)
+	{
+		row_content = map->matriz[i];
+		ft_includes(MAP_CHARS, row_content);
+
+		i++;
+	}
+
 	return (TRUE);
 }

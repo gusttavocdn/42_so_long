@@ -15,7 +15,6 @@
 int main(int argc, char **argv)
 {
 //	t_mlx mlx;
-	ft_printf("I got here 1");
 	t_map map;
 
 	if (argc != 2)
@@ -24,7 +23,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	read_map_file(argv[1], &map);
-
+	validate_map(&map);
 //	mlx.game_ptr = mlx_init();
 //	mlx.win_ptr = mlx_new_window(mlx.game_ptr, W_WIDTH, W_HEIGHT, "So Long");
 //

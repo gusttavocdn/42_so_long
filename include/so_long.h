@@ -26,8 +26,14 @@
 # define W_HEIGHT 600
 # define BLOCK_ASSET "../assets/block.xpm"
 # define WALL_CHAR '1'
+# define START_CHAR 'P'
+# define EMPTY_CHAR '0'
+# define COLLECTIBLE_CHAR 'C'
+# define EXIT_CHAR 'E'
 # define TRUE 1
 # define FALSE 0
+# define ERROR_STATUS 1
+# define MAP_CHARS "01CEP"
 
 
 typedef struct s_map
@@ -53,6 +59,8 @@ typedef struct s_mlx
 
 int handle_key_events(int key_code, t_mlx *mlx);
 
-int read_map_file(char *filepath, t_map *map);
+void read_map_file(char *filepath, t_map *map);
+
+void validate_map(t_map *map);
 
 #endif // SO_LONG_H
