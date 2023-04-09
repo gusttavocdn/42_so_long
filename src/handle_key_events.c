@@ -16,8 +16,8 @@ static void ft_end_program(t_mlx *mlx);
 
 static void ft_end_program(t_mlx *mlx)
 {
-	mlx_loop_end(mlx->mlx_ptr);
-	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	mlx_loop_end(mlx->game_ptr);
+	mlx_destroy_window(mlx->game_ptr, mlx->win_ptr);
 	exit(0);
 }
 
