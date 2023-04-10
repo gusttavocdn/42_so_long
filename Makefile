@@ -11,7 +11,8 @@ SRC_DIR = ./src
 OBJ_DIR = ./obj
 BIN_DIR = ./bin
 
-SRC_FILES = handle_key_events.c map_handlers.c
+SRC_FILES = handle_key_events.c read_map.c \
+	validate_map.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

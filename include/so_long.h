@@ -58,8 +58,26 @@ typedef struct s_mlx
 
 int handle_key_events(int key_code, t_mlx *mlx);
 
+/**
+ * @brief This functions read a file with instructions to create a map
+ * and allocate all the  necessary data in the struct t_map
+ * @param filepath the path for the map instructions
+ * @param map the map struct
+ */
 void read_map_file(char *filepath, t_map *map);
 
+/**
+ * @brief This function validates if the mapa is valid
+ * @param map The struct with all mapa data
+ * @paragraph A valid map has the following rules:
+ * @paragraph - The map must be a rectangular matriz
+ * @paragraph - The map must be formed only by the chars '01CEP'
+ * @paragraph - The map must be surrounded by walls
+ * @paragraph - The map should be in a .ber file extension
+ * @paragraph - The map must contain at least 1 exit, 1 collectible and 1 start
+ */
 void validate_map(t_map *map);
+
+void dealloc_map_matriz(t_map *map);
 
 #endif // SO_LONG_H

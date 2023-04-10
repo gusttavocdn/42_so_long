@@ -16,31 +16,6 @@ static int is_map_surrounded_by_walls(t_map *map);
 
 static int has_map_only_allowed_chars(t_map *map);
 
-void read_map_file(char *filepath, t_map *map)
-{
-	size_t i;
-	int fd;
-	char *line;
-
-
-	fd = open(filepath, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("There was an error open map file");
-		exit(ERROR_STATUS);
-	}
-	i = 0;
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		map->matriz[i++] = line;
-		line = get_next_line(fd);
-	}
-	map->rows = i;
-	map->columns = ft_strlen(map->matriz[i - 1]);
-	close(fd);
-}
-
 void validate_map(t_map *map)
 {
 	if (!is_map_surrounded_by_walls(map))

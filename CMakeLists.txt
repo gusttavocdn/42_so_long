@@ -18,7 +18,7 @@ include_directories(
 
 # Create a list of source files
 set(SOURCES app/so_long.c
-        src/handle_key_events.c src/map_handlers.c)
+        src/handle_key_events.c src/read_map.c src/validate_map.c src/memory_management.c)
 
 # Add all source files from libft to the SOURCES list
 file(GLOB LIBFT_SOURCES "libft/*.c")
