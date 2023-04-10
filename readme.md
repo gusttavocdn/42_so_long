@@ -2,14 +2,14 @@
 
 ## GAME REQUIREMENTS
 
-- [ ] The player’s goal is to collect every collectible present on the map, then escape chosing the shortest possible
+- [ ] The player’s goal is to collect every collectible present on the map, then escape choosing the shortest possible
   route.
 - [ ] The W, A, S, and D keys must be used to move the main character.
 - [ ] The player should be able to move in these 4 directions: up, down, left, right.
 - [ ] The player should not be able to move into walls.
 - [ ] At every move, the current number of movements must be displayed in the shell.
 - [ ] You have to use a 2D view (top-down or profile).
-- [ ] The game doesn’t have to be real time.
+- [ ] The game does not have to be real time.
 - [ ] Although the given examples show a dolphin theme, you can create the world you want.
 
 ## GRAPHIC MANAGEMENT REQUIREMENTS
@@ -22,7 +22,7 @@
 
 ## MAP REQUIREMENTS
 
-- [ ] The map has to be constructed with 3 components: walls, collectibles, and free
+- [x] The map has to be constructed with 3 components: walls, collectibles, and free
   space.
 
 - [x] The map can be composed of only these 5 characters:
@@ -33,12 +33,12 @@
       -> E for a map exit,
       -> P for the player’s starting position.
 
-- [ ] The map must contain at least 1 exit, 1 collectible, and 1 starting position.
-- [ ] The map must be rectangular.
+- [x] The map must contain at least 1 exit, 1 collectible, and 1 starting position.
+- [x] The map must be rectangular.
 - [x] The map must be closed/surrounded by walls. If it’s not, the program must return an error.
-- [ ] You don’t have to check if there’s a valid path in the map.
-- [ ] You must be able to parse any kind of map, as long as it respects the above rules.
-- [ ] If any misconfiguration of any kind is encountered in the file, the program must
+- [x] You don’t have to check if there’s a valid path in the map.
+- [x] You must be able to parse any kind of map, as long as it respects the above rules.
+- [x] If any misconfiguration of any kind is encountered in the file, the program must
   exit in a clean way, and return "Error\n" followed by an explicit error message of
   your choice.
 
