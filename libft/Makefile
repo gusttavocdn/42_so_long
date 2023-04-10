@@ -24,7 +24,7 @@ SRC = ft_isalpha.c ft_isdigit.c \
 	ft_split.c get_next_line.c \
 	ft_printf.c ft_print_hex_memory.c \
 	ft_print_unsigned_fd.c ft_print_hex_nbr.c \
-	ft_strfull.c
+	ft_strfull.c ft_includes_char.c \
 
 OBJS = ${SRC:.c=.o}
 

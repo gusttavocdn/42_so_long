@@ -25,7 +25,7 @@ file(GLOB LIBFT_SOURCES "libft/*.c")
 list(APPEND SOURCES ${LIBFT_SOURCES})
 
 # Create a library target for libft
-add_library(ft STATIC ${LIBFT_SOURCES} libft/ft_strfull.c)
+add_library(ft STATIC ${LIBFT_SOURCES} libft/ft_strfull.c libft/ft_includes_char.c)
 
 # Add the executable target
 add_executable(${PROJECT_NAME} ${SOURCES})

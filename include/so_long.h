@@ -24,7 +24,6 @@
 
 # define W_WIDTH 900
 # define W_HEIGHT 600
-# define BLOCK_ASSET "../assets/block.xpm"
 # define WALL_CHAR '1'
 # define START_CHAR 'P'
 # define EMPTY_CHAR '0'

@@ -6,6 +6,8 @@
 # include <unistd.h>
 
 # define BUFFER_SIZE 42
+# define TRUE 1
+# define FALSE 0
 
 typedef struct s_list
 {
@@ -79,7 +81,7 @@ size_t ft_strlcpy(char *dst, const char *src, size_t size);
  * we pass an empty substring
  */
 char *ft_strnstr(const char *big, const char *little,
-                 size_t len);
+				 size_t len);
 
 // Function from <string.h> library
 
@@ -392,7 +394,7 @@ void ft_lstiter(t_list *lst, void (*f)(void *));
  * NULL if the allocation fails.
  */
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *),
-                  void (*del)(void *));
+				  void (*del)(void *));
 
 // Extensions Functions
 
@@ -446,5 +448,14 @@ int ft_put_unsigned_fd(int n, int fd);
  * @return If the string has filled only with the same char
  */
 size_t ft_strfull(const char *str, char c);
+
+
+/**
+ * @brief Verifies if a char is inside a list of chars
+ * @param c char to check
+ * @param chars chars list
+ * @return returns 1 if the char list contains at least one time  the char c
+ */
+int ft_includes_char(char c, const char *chars);
 
 #endif

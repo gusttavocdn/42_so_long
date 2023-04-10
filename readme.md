@@ -25,7 +25,7 @@
 - [ ] The map has to be constructed with 3 components: walls, collectibles, and free
   space.
 
-- [ ] The map can be composed of only these 5 characters:
+- [x] The map can be composed of only these 5 characters:
 
       -> 0 for an empty space,
       -> 1 for a wall,

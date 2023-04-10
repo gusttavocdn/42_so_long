@@ -12,15 +12,16 @@
 
 #include "../include/so_long.h"
 
-int is_map_surronded_by_walls(t_map *map);
+static int is_map_surrounded_by_walls(t_map *map);
 
-int ft_includes(const char *str, const char *chars);
+static int has_map_only_allowed_chars(t_map *map);
 
 void read_map_file(char *filepath, t_map *map)
 {
 	size_t i;
 	int fd;
 	char *line;
+
 
 	fd = open(filepath, O_RDONLY);
 	if (fd < 0)
@@ -42,14 +43,20 @@ void read_map_file(char *filepath, t_map *map)
 
 void validate_map(t_map *map)
 {
-	if (!is_map_surronded_by_walls(map))
+	if (!is_map_surrounded_by_walls(map))
 	{
-		perror("The map is invalid. Ensure that the map has the correct format");
+		perror("MAP INVALID!!. Ensure that the map corners is formed by walls");
+		exit(ERROR_STATUS);
+	}
+
+	if (!has_map_only_allowed_chars(map))
+	{
+		perror("MAP INVALID!! The map should be formed only by the '01CEP' chars");
 		exit(ERROR_STATUS);
 	}
 }
 
-int is_map_surronded_by_walls(t_map *map)
+static int is_map_surrounded_by_walls(t_map *map)
 {
 	size_t last_row;
 	size_t first_row;
@@ -62,35 +69,36 @@ int is_map_surronded_by_walls(t_map *map)
 	current_row_first_column = 0;
 	current_row_last_column = map->columns - 1;
 	if (!ft_strfull(map->matriz[first_row], WALL_CHAR) ||
-	    !ft_strfull(map->matriz[last_row], WALL_CHAR))
+		!ft_strfull(map->matriz[last_row], WALL_CHAR))
 		return (FALSE);
 
 	i = 1;
 	while (i < last_row)
 	{
 		if (map->matriz[i][current_row_first_column] != WALL_CHAR ||
-		    map->matriz[i][current_row_last_column] != WALL_CHAR)
+			map->matriz[i][current_row_last_column] != WALL_CHAR)
 			return (FALSE);
 		i++;
 	}
 	return (TRUE);
 }
 
-int has_map_only_allowed_chars(t_map *map)
+static int has_map_only_allowed_chars(t_map *map)
 {
-	size_t rows;
 	size_t i;
-	char *row_content;
+	size_t j;
 
 	i = 0;
-	rows = map->rows;
-	while (i < rows)
+	while (i < map->rows)
 	{
-		row_content = map->matriz[i];
-		ft_includes(MAP_CHARS, row_content);
-
+		j = 0;
+		while (j < map->columns)
+		{
+			if (!ft_includes_char(map->matriz[i][j], MAP_CHARS))
+				return (FALSE);
+			j++;
+		}
 		i++;
 	}
-
 	return (TRUE);
 }
